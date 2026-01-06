@@ -1,0 +1,937 @@
+
+  
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery-2.2.4.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <script src="bootstrap.min.js"></script>
+	<title>Estimate</title>
+	
+	
+   
+    <style>
+     table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    /*text-align:center;*/
+    color:black;
+}
+th{
+  text-align:center;
+}
+.main{
+font-size:20px;
+}
+  .cen{
+    text-align:center;
+  }  
+  .inline {
+  display: inline;
+}
+/*@media print {
+    body * {
+       visibility: hidden;
+    }
+    .ex *{
+       visibility: visible;
+    }
+   
+}*/
+@media print {
+  @page { /*margin-bottom: 0;*/} 
+  	/*.margin{margin-top:20px;}*/
+  
+  body * {
+       visibility: hidden;
+    }
+    header,footer { 
+    display: none; 
+  }
+    .ex *{
+       visibility: visible;
+    }
+}
+
+ /*@page {
+  size: auto;
+  margin: 0mm;
+       }*/
+
+</style>
+	
+    <link rel="manifest" href="/manifest.json">
+
+</head>
+
+<body>
+        <script src="includesw.js"></script>
+
+    <div id="tow">
+  <div class="ex" id="ex">
+      </div>
+    </div>
+    <p align="center"> <button onclick="test();">download</button><button onclick="myclick()">print</button><button ><a href="unsavedtice1.html">Home</a></button></p>
+  </body>
+      <script>
+    /*var len=JSON.parse(localStorage.getItem("unsaved")).length;
+
+    var n=len-1;*/
+    var array=[];
+    var final=[];
+    var sum=[];
+    var pcs=[];
+    var totalar=[];
+    var namear=[];
+    var lot=[];
+    var grandtotal=0;
+    var grandpcs=0;
+    var a=0;
+    var s=0;
+    var d=0;
+    var n=localStorage.getItem("print");
+    final=JSON.parse(localStorage.getItem("unsaved"))[n];
+    
+   
+    var name12=final[0];
+      var adress=final[1];
+      var phone=final[2];
+      var date1=final[3];
+      var gho=final[3].split("-");
+      var date=gho[2]+"-"+gho[1]+"-"+gho[0];
+     var con=final[3];
+     var con=final[4];
+     var vehicle=final[5];
+     var refer=final[7];
+     var load=final[8];
+     var aprvd=final[9];
+     var sales=final[10];
+      var output1="";
+      output1='<table width="97.5%"><tbody><tr><th class="main" colspan="12">MEASUREMENT LIST </th></tr> <tr><td colspan="12"> <div class="row"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><p>&nbsp&nbsp&nbsp&nbspNAME:&nbsp&nbsp&nbsp&nbsp<b>'+name12+'</b></p></div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><p>DATE:&nbsp&nbsp&nbsp&nbsp<b>'+date+'</b></p></div></div><div class="row"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><p>&nbsp&nbsp&nbsp&nbspADDRESS:&nbsp&nbsp&nbsp&nbsp<b>'+adress+'</b></p></div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><p>VEHICLE NO:&nbsp&nbsp&nbsp&nbsp<b>'+vehicle+'</b></p></div></div><div class="row"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><p>MOBILE NO:&nbsp&nbsp&nbsp&nbsp<b>'+phone+'</b></p></div></div></td></tr></tbody></table>';
+$("#ex").append(output1);
+var name="";
+var c=1;
+      var t=1;
+      var d=1;
+      var xv="";
+var n=1;
+var table=1;
+      var output='<div class="row"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+       n++;
+       
+       /*alert(final[4]);*/
+       var str1=final[11];
+      str1=str1.toString();
+      
+       var data=str1.split(",");
+       var cou=data.length;
+       // alert(cou);
+       for(var i=0;i<cou;i++){
+  var str=data[i];
+      str=str.toString();
+       var b=str.split("-");
+     
+if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+
+  if(b[0]==name){
+      c++;
+       if(d>=46){
+       	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+else{
+    d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+      output+='<tr class="cen"><td style="width:2%">'+c+'</td><td style="width:14%" >'+b[1]+' <b>X</b> '+b[2]+'</td><td style="width:7%">'+b[3]+' <b>X</b> '+b[4]+'</td><td style="width:7%">'+b[5]+' <b>X</b> '+b[6]+'</td><td style="width:7%">'+b[7]+' <b>X</b> '+b[8]+'</td><td  style="width:11%">'+b[9]+'</td>';
+    d++;
+      
+  }
+  else{
+      namear[s]=b[0];
+       lot[s]=b[11];
+
+      s++;
+      
+      if(t!=1){
+          if(d>=46){
+          	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+          	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+      output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+//var ghj=xv.split(":");
+var ghj=xv;
+          pcs[a]=c;
+          totalar[a]=ghj;
+          
+          a++;
+          output+='<tr> <td style="text-align:right"  colspan="6"><b>'+xv+'&nbsp&nbsp&nbsp&nbsp</b></td>';
+          d++;
+    
+      }
+      var xv=b[10];
+      c=1;
+      if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+     output+='<tr> <th colspan="3">Colour:&nbsp&nbsp'+b[0]+'</th><th colspan="3">Lot Id:&nbsp&nbsp'+b[11]+'</th>';
+    t++;
+    d++;
+   if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+     output+='<tr class="cen"><td style="width:2%">S.No</td><td style="width:14%" >L &nbsp &nbsp&nbsp &nbsp &nbsp W</td><td style="width:7%">Less1</td><td style="width:7%">Less2</td><td style="width:7%">Less3</td> <td style="width:11%">Area</td>';
+    d++;
+    if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+    output+='<tr class="cen"><td style="width:2%">'+c+'</td><td style="width:14%" >'+b[1]+' <b>X</b> '+b[2]+'</td><td style="width:7%">'+b[3]+' <b>X</b> '+b[4]+'</td><td style="width:7%">'+b[5]+' <b>X</b> '+b[6]+'</td><td style="width:7%">'+b[7]+' <b>X</b> '+b[8]+'</td><td   style="width:11%">'+b[9]+'</td>';
+    d++;
+    name=b[0];
+  }
+  
+  
+}
+if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+pcs[a]=c;
+          totalar[a]=xv;
+          
+          a++;
+output+='<tr> <td colspan="6" style="text-align:right"><b>TOTAL:'+xv+'&nbsp&nbsp&nbsp&nbsp</b></td></tr>';
+ d++;
+ if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+
+output+='<tr> <td colspan="6" style="text-align:right"><b>&nbsp&nbsp&nbsp&nbsp</b></td></tr>';
+d++;
+   if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+
+output+='<tr style="border-top: 1px solid white;"> <td colspan="6" style="text-align:center; "><b > &nbsp</b></td></tr>';
+d++;   if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+
+output+='<tr style="border-top: 1px solid white;"> <td colspan="6" style="text-align:center; "><b > &nbsp</b></td></tr>';
+d++;
+if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+
+output+='<tr style="border-top: 1px solid white;"> <td colspan="6" style="text-align:center; "><b >SUMMARY</b></td></tr>';
+d++;
+
+  if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+     output+='<tr class="cen"><th style="width:2%">S.No</th><th style="width:21%" >Colour</th><th style="width:21%" >Lot Id</th><th style="width:7%">Pcs</th><th colspan="2" style="width:18%">Quantity</th> ';
+    d++;
+var item_count=0;
+for(var m=0;m<a;m++){
+	if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+item_count++;
+grandpcs=grandpcs+pcs[m];
+var totalgh=Number(totalar[m]);
+grandtotal=grandtotal+totalgh;
+var grandto=grandtotal.toFixed(2)
+ output+='<tr class="cen"><td style="width:2%">'+item_count+'</td><td style="width:21%"  >'+namear[m]+' </td><td style="width:21%"  >'+lot[m]+' </td><td style="width:7%">'+pcs[m]+'</td><td colspan="2" style="width:18%">'+totalar[m]+' </td></tr>';
+d++;
+	}
+	if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+     output+='<tr class="cen"><th style="width:23%" colspan="3" >Total No.of Pcs</th><th style="width:7%">'+grandpcs+'</th><th colspan="2" style="width:18%">'+grandto+'</th></tr> ';
+    d++;
+    if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+
+output+='<tr style="border-top: 1px solid white;"> <td colspan="6" style="text-align:center; "><b > &nbsp</b></td></tr>';
+d++;
+   if(d>=46){
+      	if(n>3){
+       		if(d>=51){
+       			d=1;
+    if(n%2==0){
+        n++;
+      output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+
+       		}
+       	}
+      	else{
+    d=1;
+    if(n%2==0){
+        n++;
+        output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+   
+      
+    }
+    else{
+         n++;
+        output+=' </table></table></div></div>';
+        output+='<div class="row margin"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><table width="100%"><tbody>';
+     
+        
+    }
+}
+}
+
+output+='<tr style="border-top: 1px solid white;"> <td colspan="6" style="text-align:center; "><b > &nbsp</b></td></tr>';
+d++;
+ var y=n-1;
+    if(y%2==0){
+    	var lines=0;
+    	if(n>3){
+    		 lines=51;
+    	}
+    	else{
+    		lines=46;
+
+    	}
+        for(var w=d;w<lines;w++){
+     
+     output+=' <td style="width:2%">&nbsp</td><td style="width:14%" > </td><td style="width:7%"></td><td style="width:7%"></td><td style="width:7%"></td><td style="width:11%"></td></tr>';
+         
+ }
+        
+    }
+    else{
+    	if(n>3){
+    		 lines=51;
+    	}
+    	else{
+    		lines=46;
+
+    	}
+        for(var w=d;w<lines;w++){
+     
+     output+=' <td style="width:2%">&nbsp</td><td style="width:14%" > </td><td style="width:7%"></td><td style="width:7%"></td><td style="width:7%"></td><td style="width:11%"></td></tr>';
+         
+ }
+ output+=' </table></table></div>';
+        output+='<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-left:-31px"><table width="100%"><tbody>';
+        if(n>3){
+    		 lines=51;
+    	}
+    	else{
+    		lines=46;
+
+    	}
+ for(w=1;w<lines;w++){
+
+     
+     output+=' <td style="width:2%">&nbsp</td><td style="width:14%" > </td><td style="width:7%"></td><td style="width:7%"></td><td style="width:7%"></td><td style="width:11%"></td></tr>';
+         
+ }
+    }
+    output+='</table></table></div></div>';
+$("#ex").append(output);
+
+</script>
+   
+    <script src="html2pdf.bundle.js"></script>
+ <script>
+      function test() {
+        // Get the element.
+        var element = document.getElementById('ex');
+
+        // Generate the PDF.
+        html2pdf().from(element).set({
+          margin: 0.5,
+          filename: name12+'-'+date+'.pdf',
+          html2canvas: { scale: 2 },
+          jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
+        }).save();
+      }
+    </script>
+
+   <script>
+  function myclick(){
+  	/*var headstr = "<html><head><title></title></head><body>";
+var footstr = "</body>";
+var newstr = document.all.item('ex').innerHTML;
+var oldstr = document.body.innerHTML;
+document.body.innerHTML = headstr+newstr+footstr;*/
+/*document.title = "page as";*/
+window.print();
+/*document.body.innerHTML = oldstr;
+return false;*/
+  	/* var printContents = document.getElementById('ex').innerHTML;
+     var originalContents = document.body.innerHTML;
+     document.body.innerHTML = printContents;
+     window.print();
+     document.body.innerHTML = originalContents;
+     setDomStorageEnabled(true)*/
+     /* var divname="ex";
+   var printContents = document.getElementById(divname).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;*/
+  }
+  </script>
+
+
+</html>
